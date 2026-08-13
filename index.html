@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Satyam Medico</title>
+    <meta name="description" content="MediCare Pharmacy - Your trusted online medical store">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+    <div class="container nav">
+<a href="#" class="logo">
+    <img 
+        src="logo/satyam_medico_.png" 
+        alt="Satyam Medico Logo"
+        class="logo-image"
+    >
+
+    <div>
+        <strong>Satyam Medico</strong>
+        <span>PHARMACY</span>
+    </div>
+</a>
+
+        <div class="search-box">
+            <span>⌕</span>
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search medicines, products..."
+            >
+        </div>
+
+        <div class="nav-actions">
+
+            <button class="account-btn" onclick="openAccount()">
+                <span>👤</span>
+                <div>
+                    <small>Hello,</small>
+                    <strong id="accountText">Login</strong>
+                </div>
+            </button>
+
+            <button class="cart-btn" onclick="openCart()">
+                🛒
+                <span class="cart-count" id="cartCount">0</span>
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- ================= CATEGORY NAV ================= -->
+
+<nav class="category-nav">
+
+    <div class="container categories">
+
+        <button onclick="filterProducts('All')">All</button>
+        <button onclick="filterProducts('Pain Relief')">Pain Relief</button>
+        <button onclick="filterProducts('Antibiotics')">Antibiotics</button>
+        <button onclick="filterProducts('Cold & Cough')">Cold & Cough</button>
+        <button onclick="filterProducts('Personal Care')">Personal Care</button>
+        <button onclick="filterProducts('Syrups & Vitamins')">Syrups & Vitamins</button>
+
+    </div>
+
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="container hero-content">
+
+        <div class="hero-text">
+
+            <span class="badge">YOUR TRUSTED MEDICAL STORE</span>
+
+            <h1>
+                Your Health,<br>
+                <span>Our Priority.</span>
+            </h1>
+
+            <p>
+                Quality healthcare products delivered to your doorstep.
+                Shop medicines and wellness products easily.
+            </p>
+
+            <button class="primary-btn" onclick="scrollToProducts()">
+                Shop Now →
+            </button>
+
+        </div>
+
+        <div class="hero-card">
+
+            <div class="hero-icon">⚕</div>
+
+            <h3>Healthcare Made Easy</h3>
+
+            <p>
+                Order your essential healthcare products
+                from the comfort of your home.
+            </p>
+
+            <div class="hero-features">
+                <span>✓ Genuine Products</span>
+                <span>✓ Fast Delivery</span>
+                <span>✓ Trusted Service</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= BENEFITS ================= -->
+
+<section class="benefits">
+
+    <div class="container benefits-grid">
+
+        <div class="benefit">
+            <div class="benefit-icon">✓</div>
+            <div>
+                <strong>100% Genuine</strong>
+                <p>Quality products</p>
+            </div>
+        </div>
+
+        <div class="benefit">
+            <div class="benefit-icon">🚚</div>
+            <div>
+                <strong>Fast Delivery</strong>
+                <p>Quick doorstep delivery</p>
+            </div>
+        </div>
+
+        <div class="benefit">
+            <div class="benefit-icon">🔒</div>
+            <div>
+                <strong>Secure Ordering</strong>
+                <p>Your details are protected</p>
+            </div>
+        </div>
+
+        <div class="benefit">
+            <div class="benefit-icon">💬</div>
+            <div>
+                <strong>Customer Support</strong>
+                <p>We're here to help</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PRODUCTS ================= -->
+
+<section class="products-section" id="products">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <div>
+                <span class="section-label">OUR PRODUCTS</span>
+                <h2>Popular Healthcare Products</h2>
+            </div>
+
+            <select id="sortSelect" onchange="sortProducts()">
+                <option value="default">Sort By</option>
+                <option value="low">Price: Low to High</option>
+                <option value="high">Price: High to Low</option>
+            </select>
+
+        </div>
+
+        <div class="product-grid" id="productGrid"></div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ACCOUNT MODAL ================= -->
+
+<div class="modal" id="accountModal">
+
+    <div class="modal-content">
+
+        <button class="close-btn" onclick="closeModal('accountModal')">
+            ×
+        </button>
+
+        <div id="accountArea"></div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= CART MODAL ================= -->
+
+<div class="modal" id="cartModal">
+
+    <div class="modal-content cart-modal">
+
+        <button class="close-btn" onclick="closeModal('cartModal')">
+            ×
+        </button>
+
+        <h2>Your Cart</h2>
+
+        <div id="cartItems"></div>
+
+        <div class="cart-total">
+            <span>Total</span>
+            <strong id="cartTotal">₹0</strong>
+        </div>
+
+        <button
+            class="primary-btn full-btn"
+            onclick="openCheckout()"
+        >
+            Proceed to Checkout
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ================= CHECKOUT MODAL ================= -->
+
+<div class="modal" id="checkoutModal">
+
+    <div class="modal-content checkout-modal">
+
+        <button class="close-btn" onclick="closeModal('checkoutModal')">
+            ×
+        </button>
+
+        <h2>Checkout</h2>
+
+        <p class="modal-subtitle">
+            Your saved details will be used automatically.
+        </p>
+
+        <form id="checkoutForm">
+
+            <label>Full Name</label>
+            <input
+                type="text"
+                id="customerName"
+                required
+            >
+
+            <label>Mobile Number</label>
+            <input
+                type="tel"
+                id="customerPhone"
+                required
+            >
+
+            <label>Delivery Address</label>
+            <textarea
+                id="customerAddress"
+                rows="4"
+                required
+            ></textarea>
+
+            <label>Payment Method</label>
+
+            <select id="paymentMethod">
+                <option value="cod">
+                    Cash on Delivery
+                </option>
+            </select>
+
+            <div class="checkout-summary">
+                <span>Order Total</span>
+                <strong id="checkoutTotal">₹0</strong>
+            </div>
+
+            <button
+                type="submit"
+                class="primary-btn full-btn"
+            >
+                Place Order
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- ================= ORDER SUCCESS ================= -->
+
+<div class="modal" id="successModal">
+
+    <div class="modal-content success-modal">
+
+        <div class="success-icon">✓</div>
+
+        <h2>Order Placed!</h2>
+
+        <p>
+            Your order has been successfully placed.
+        </p>
+
+        <div class="order-number">
+            Order ID:
+            <strong id="orderNumber"></strong>
+        </div>
+
+        <button
+            class="primary-btn full-btn"
+            onclick="closeModal('successModal')"
+        >
+            Continue Shopping
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="container footer-grid">
+
+        <div>
+
+            <div class="logo footer-logo">
+                <div class="logo-icon">+</div>
+
+                <div>
+                    <strong>Satyam Medico</strong>
+                    <span>PHARMACY</span>
+                </div>
+            </div>
+
+            <p>
+                Your trusted partner for healthcare
+                and wellness products.
+            </p>
+
+        </div>
+
+        <div>
+            <h4>Quick Links</h4>
+            <a href="#">Home</a>
+            <a href="#products">Products</a>
+            <a href="#">About Us</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <div>
+            <h4>Contact</h4>
+            <p>📞 +91 9113174863</p>
+            <p>✉️ info@satyammedico.com</p>
+            <p>📍 Baghnocha Hasanpur PIN:844506 Mahnar Vaishali  </p>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 Satyam Medico. All rights reserved.
+    </div>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
