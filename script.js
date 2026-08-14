@@ -109,6 +109,50 @@ const products = [
         image: "products/oflosil.jpeg", 
         description: "Ofloxacin Metronidazole & Simethicone Oral Suspension" 
     }, 
+
+     { 
+        id: 11, 
+        name: "PANDEAP DSR Tablets", 
+        category: "Pain Relief", 
+        price: 103, 
+        icon: "🫙", 
+        image: "products/panmon.jpeg", 
+        description: "Enteric Coated Pantoprazole 40mg + Domperidone 30mg Tablets" 
+    }, 
+
+     { 
+        id: 12, 
+        name: "DRISUN DX Syrup", 
+        category: "cold & Cough", 
+        price: 70, 
+        icon: "🫙", 
+        image: "products/Drisun.jpeg", 
+        description: "Dextromethorphan Hydrobrmide Phenylephrine Hydrochloride & Chlorpheniramine Maleate Syrup" 
+    }, 
+
+     { 
+        id: 13, 
+        name: "MUNISU-L Syrup", 
+        category: "cold & Cough", 
+        price: 80, 
+        icon: "🫙", 
+        image: "products/syrupmunisl.jpeg", 
+        description: "Monteleukast 4mg + Levocetirizine 2.5mg Dihydrocholoride Syrup" 
+    }, 
+
+     { 
+        id: 10, 
+        name: "UDMOX 500 mg Tablets", 
+        category: "Antibiotics", 
+        price: 80, 
+        icon: "🫙", 
+        image: "products/udmox.jpeg", 
+        description: "Amoxicillin 500mg & Dicloxacillin Tablets" 
+    }, 
+
+
+
+    
  
 ]; 
  
