@@ -142,14 +142,13 @@ const products = [
 
      { 
         id: 14, 
-        name: "UDMOX 500 mg Tablets", 
+        name: "UDMOX 500 Tablets", 
         category: "Antibiotics", 
         price: 80, 
         icon: "🫙", 
         image: "products/udmox.jpeg", 
         description: "Amoxicillin 500mg & Dicloxacillin Tablets" 
     }, 
-
 
 
     
