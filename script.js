@@ -1035,7 +1035,7 @@ try {
         .join("\n");
 
     const response = await fetch(
-        "https://formspree.io/f/xzzrwzey",
+        "https://formspree.io/f/xwleqnze",
         {
             method: "POST",
 
