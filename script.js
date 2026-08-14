@@ -141,7 +141,7 @@ const products = [
     }, 
 
      { 
-        id: 10, 
+        id: 14, 
         name: "UDMOX 500 mg Tablets", 
         category: "Antibiotics", 
         price: 80, 
