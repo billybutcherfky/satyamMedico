@@ -42,7 +42,7 @@ const products = [
 
     {
         id: 4,
-        name: "",
+        name: "OXIDAI Z Syrup",
         category: "Syrups & Vitamins",
         price: 90,
         icon: "💊",
@@ -102,9 +102,9 @@ const products = [
 
      {
         id: 10,
-        name: "",
+        name: "OFLOSIL OM Syrup",
         category: "Pain Relief",
-        price: 60,
+        price: 80,
         icon: "🫙",
         image: "products/oflosil.jpeg",
         description: "Ofloxacin Metronidazole & Simethicone Oral Suspension"
@@ -176,7 +176,7 @@ function renderProducts(items) {
 
     grid.innerHTML = items.map(product => `
 
-        <article class="product-card">
+        <article class="product-card" onclick="openProductDetails(${product.id})">
 
             <div class="product-image">
 
@@ -231,7 +231,7 @@ function renderProducts(items) {
                     <button
                         type="button"
                         class="add-btn"
-                        onclick="addToCart(${product.id})"
+                        onclick="event.stopPropagation(); addToCart(${product.id})"
                     >
                         Add +
                     </button>
@@ -1232,7 +1232,6 @@ function showToast(message) {
 
 }
 
-
 /* =========================================
    ESCAPE HTML
 ========================================= */
@@ -1240,15 +1239,446 @@ function showToast(message) {
 function escapeHTML(value) {
 
     return String(value)
-
         .replaceAll("&", "&amp;")
-
         .replaceAll("<", "&lt;")
-
         .replaceAll(">", "&gt;")
-
         .replaceAll('"', "&quot;")
-
         .replaceAll("'", "&#039;");
+}
 
+
+/* =========================================
+   PRODUCT DETAILS
+========================================= */
+
+function openProductDetails(productId) {
+
+    const product = products.find(
+        p => p.id === productId
+    );
+
+    if (!product) return;
+
+
+    /* Remove existing modal */
+
+    const existingModal =
+        document.getElementById("productDetailsModal");
+
+    if (existingModal) {
+        existingModal.remove();
+    }
+
+
+    /* Create modal */
+
+    const modal =
+        document.createElement("div");
+
+    modal.id = "productDetailsModal";
+
+
+    modal.innerHTML = `
+
+        <div class="product-details-overlay">
+
+            <div
+                class="product-details-modal"
+                onclick="event.stopPropagation()"
+            >
+
+                <button
+                    class="product-details-close"
+                    onclick="closeProductDetails()"
+                    type="button"
+                >
+                    ×
+                </button>
+
+
+                <!-- PRODUCT IMAGE -->
+
+                <div class="product-details-image">
+
+                    ${
+                        product.image
+                        ?
+                        `
+                        <img
+                            src="${product.image}"
+                            alt="${escapeHTML(product.name)}"
+                            onerror="
+                                this.onerror=null;
+                                this.style.display='none';
+                                this.parentElement.innerHTML='<div class=&quot;product-image-fallback&quot;>${product.icon || "💊"}</div>';
+                            "
+                        >
+                        `
+                        :
+                        `
+                        <div class="product-image-fallback">
+                            ${product.icon || "💊"}
+                        </div>
+                        `
+                    }
+
+                </div>
+
+
+                <!-- PRODUCT INFORMATION -->
+
+                <div class="product-details-content">
+
+                    <span class="product-details-category">
+                        ${escapeHTML(product.category)}
+                    </span>
+
+
+                    <h2>
+                        ${escapeHTML(product.name)}
+                    </h2>
+
+
+                    <p class="product-details-description">
+                        ${escapeHTML(product.description)}
+                    </p>
+
+
+                    <div class="product-details-price">
+                        ₹${product.price}
+                    </div>
+
+
+                    <button
+                        class="product-details-add"
+                        type="button"
+                        onclick="
+                            addToCart(${product.id});
+                            closeProductDetails();
+                        "
+                    >
+                        Add to Cart +
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    document.body.appendChild(modal);
+
+
+    /* Close when clicking outside */
+
+    const overlay =
+        modal.querySelector(
+            ".product-details-overlay"
+        );
+
+    if (overlay) {
+
+        overlay.addEventListener(
+            "click",
+            function(event) {
+
+                if (event.target === overlay) {
+                    closeProductDetails();
+                }
+
+            }
+        );
+
+    }
+
+
+    /* Prevent background scrolling */
+
+    document.body.style.overflow = "hidden";
+}
+
+
+/* =========================================
+   CLOSE PRODUCT DETAILS
+========================================= */
+
+function closeProductDetails() {
+
+    const modal =
+        document.getElementById(
+            "productDetailsModal"
+        );
+
+    if (modal) {
+        modal.remove();
+    }
+
+    document.body.style.overflow = "";
+}
+
+
+/* =========================================
+   PRODUCT DETAILS STYLE
+========================================= */
+
+if (
+    !document.getElementById(
+        "productDetailsStyle"
+    )
+) {
+
+    const style =
+        document.createElement("style");
+
+    style.id =
+        "productDetailsStyle";
+
+
+    style.textContent = `
+
+        .product-details-overlay {
+
+            position: fixed;
+
+            inset: 0;
+
+            background:
+                rgba(0, 0, 0, 0.55);
+
+            backdrop-filter: blur(4px);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 20px;
+
+            z-index: 10000;
+        }
+
+
+        .product-details-modal {
+
+            position: relative;
+
+            width: 100%;
+
+            max-width: 500px;
+
+            max-height: 90vh;
+
+            overflow-y: auto;
+
+            background: #ffffff;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 25px 70px
+                rgba(0, 0, 0, 0.25);
+
+            overflow: hidden;
+        }
+
+
+        .product-details-close {
+
+            position: absolute;
+
+            top: 15px;
+
+            right: 15px;
+
+            width: 40px;
+
+            height: 40px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255, 255, 255, 0.95);
+
+            font-size: 28px;
+
+            cursor: pointer;
+
+            z-index: 2;
+
+            line-height: 1;
+        }
+
+
+        .product-details-close:hover {
+
+            background: #f1f1f1;
+        }
+
+
+        .product-details-image {
+
+            width: 100%;
+
+            height: 320px;
+
+            background: #f7faf9;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            overflow: hidden;
+        }
+
+
+        .product-details-image img {
+
+            width: 100%;
+
+            height: 100%;
+
+            display: block;
+
+            object-fit: contain;
+
+            object-position: center;
+        }
+
+
+        .product-details-content {
+
+            padding: 25px;
+        }
+
+
+        .product-details-category {
+
+            display: inline-block;
+
+            color:
+                var(--primary, #009879);
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .product-details-content h2 {
+
+            margin:
+                0 0 12px;
+
+            font-size: 24px;
+
+            line-height: 1.3;
+        }
+
+
+        .product-details-description {
+
+            color:
+                var(--muted, #6b7773);
+
+            font-size: 14px;
+
+            line-height: 1.6;
+
+            margin:
+                0 0 20px;
+        }
+
+
+        .product-details-price {
+
+            font-size: 26px;
+
+            font-weight: 800;
+
+            margin-bottom: 20px;
+        }
+
+
+        .product-details-add {
+
+            width: 100%;
+
+            border: none;
+
+            background:
+                var(--primary, #009879);
+
+            color: #ffffff;
+
+            padding: 14px 20px;
+
+            border-radius: 10px;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+
+        .product-details-add:hover {
+
+            opacity: 0.9;
+        }
+
+
+        @media (max-width: 600px) {
+
+            .product-details-overlay {
+
+                padding: 15px;
+            }
+
+
+            .product-details-modal {
+
+                max-width: 100%;
+
+                border-radius: 18px;
+            }
+
+
+            .product-details-image {
+
+                height: 260px;
+            }
+
+
+            .product-details-content {
+
+                padding: 20px;
+            }
+
+
+            .product-details-content h2 {
+
+                font-size: 21px;
+            }
+
+        }
+
+    `;
+
+
+    document.head.appendChild(style);
 }
