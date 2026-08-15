@@ -15,6 +15,7 @@ const products = [
         name: "BAMBAM GEL Ointment", 
         category: "Personal Care", 
         price: 95, 
+        unit: "Tube",
         icon: "🧴", 
         image: "products/bambamge.jpeg", 
         description: "Diclofenac Diethylamine Oleum Lini, Methyl Salicylate, Menthol & Gel" 
@@ -25,26 +26,29 @@ const products = [
         name: "ZENOQUEN OZ Ointment", 
         category: "Personal Care", 
         price: 80, 
+        unit: "Tube",
         icon: "💊", 
         image: "products/zenoqun_oz_.jpeg", 
         description: "Itraconazole, clobetasol propionate, ofloxacin & ornidazole ointment" 
     }, 
  
     { 
-       id: 3, 
+        id: 3, 
         name: "RDFIX CV 625 Tablets", 
         category: "Antibiotics", 
-        price: 1170, 
+        price: 117, 
+        unit: "strip",
         icon: "💊", 
         image: "products/RDFIXCV625.jpeg", 
         description: "Amoxicillin 500mg + Potassium 125mg Tablets" 
     }, 
  
     { 
-       id: 4, 
+        id: 4, 
         name: "MUNISU-L Tablets", 
-        category: "cold & Cough", 
-        price: 900, 
+        category: "Analgesics", 
+        price: 90, 
+        unit: "strip",
         icon: "🧴", 
         image: "products/Munisul.jpeg", 
         description: "Monteleukast 10mg + Levocetirizine 5mg Dihydrocholoride Tablets" 
@@ -54,7 +58,8 @@ const products = [
         id: 5, 
         name: "AJISAT 500 Tablets", 
         category: "Antibiotics", 
-        price: 750, 
+        price: 75, 
+        unit: "strip",
         icon: "🧴", 
         image: "products/ajisat500.jpeg", 
         description: "Azithromycin 500mg Tablets" 
@@ -63,8 +68,9 @@ const products = [
     { 
         id: 6, 
         name: "RDFIX 200 mg Tablets", 
-        category: "Pain Relief", 
-        price: 1050, 
+        category: "Antibiotics", 
+        price: 105, 
+        unit: "strip",
         icon: "🫙", 
         image: "products/Rdfix200dt.jpeg", 
         description: "Cefixime Dispersible Tablets 200mg"
@@ -73,8 +79,9 @@ const products = [
     { 
         id: 7, 
         name: "PANDEAP DSR Tablets", 
-        category: "Pain Relief", 
-        price: 1030, 
+        category: "Gastrointestinal", 
+        price: 103, 
+        unit: "strip",
         icon: "🫙", 
         image: "products/panmon.jpeg", 
         description: "Enteric Coated Pantoprazole 40mg + Domperidone 30mg Tablets"
@@ -83,8 +90,9 @@ const products = [
     { 
         id: 8, 
         name: "NURODIP GOLD Tablets", 
-        category: "Antibiotics", 
-        price: 1500, 
+        category: "Nutritional", 
+        price: 150, 
+        unit: "strip",
         icon: "🫙", 
         image: "products/nurodipgold2.jpeg", 
         description: "Methylcobalamin Folic Acid Vitamin B1 Vitamin B6 & Alpha Lipoic Acid Tablets" 
@@ -94,7 +102,8 @@ const products = [
         id: 9, 
         name: "UDMOX 500 Tablets", 
         category: "Antibiotics", 
-        price: 1200, 
+        price: 120, 
+        unit: "strip",
         icon: "🫙", 
         image: "products/udmox.jpeg", 
         description: "Amoxicillin 500mg & Dicloxacillin Tablets" 
@@ -104,7 +113,8 @@ const products = [
         id: 10, 
         name: "RDFIX O Tablets", 
         category: "Antibiotics", 
-        price: 2000, 
+        price: 200, 
+        unit: "strip",
         icon: "🫙", 
         image: "products/rdfixo.jpeg", 
         description: "Cefixime & Ofloxacin Tablets" 
@@ -113,8 +123,9 @@ const products = [
      { 
         id: 11, 
         name: "ACIDEV P", 
-        category: "Pain Relief", 
-        price: 1120, 
+        category: "Analgesics", 
+        price: 112,
+        unit: "strip", 
         icon: "🌡️", 
         image: "products/acidev.p.jpeg", 
         description: "Acelofenacem 100mg + Paracetamol 325mg Tablets"
@@ -123,8 +134,9 @@ const products = [
      { 
         id: 12, 
         name: "ACIDEV MR tablets", 
-        category: "Antibiotics", 
-        price: 700, 
+        category: "Analgesics", 
+        price: 70, 
+        unit: "strip",
         icon: "🫙", 
         image: "products/acidevmr.jpeg", 
         description: "Aceclofenac Paracetamol & Cholrzoxazone Tablets"
@@ -133,8 +145,9 @@ const products = [
      { 
         id: 13, 
          name: "MONOSAT 50 Oral Suspension", 
-        category: "Syrups & Vitamins", 
+        category: "Antibiotics", 
         price: 89, 
+        unit: "piece",
         icon: "🫙", 
         image: "products/monosat50.jpeg", 
         description: "Cefpodoxime Proxetil Oral Suspension 50mg" 
@@ -143,8 +156,9 @@ const products = [
      { 
         id: 14, 
         name: "RDFIX CV Dry Syrup", 
-        category: "Cold & Cough", 
+        category: "Antibiotics", 
         price: 80, 
+        unit: "piece",
         icon: "🫙", 
         image: "products/rdfixcvdry.jpeg", 
         description: "Amoxicillin & Potassium Clavulate Oral Suspension" 
@@ -153,8 +167,9 @@ const products = [
       { 
         id: 15, 
         name: "OFLOSIL OM Syrup", 
-        category: "Pain Relief", 
+        category: "Antibiotics", 
         price: 80, 
+        unit: "Bottle",
         icon: "🫙", 
         image: "products/oflosil.jpeg", 
         description: "Ofloxacin Metronidazole & Simethicone Oral Suspension" 
@@ -163,8 +178,9 @@ const products = [
       { 
         id: 16, 
         name: "MUNISU-L Syrup", 
-        category: "cold & Cough", 
+        category: "Analgesics", 
         price: 80, 
+        unit: "Bottle",
         icon: "🫙", 
         image: "products/syrupmunisl.jpeg", 
         description: "Monteleukast 4mg + Levocetirizine 2.5mg Dihydrocholoride Syrup"  
@@ -175,6 +191,7 @@ const products = [
         name: "DRISUN DX Syrup", 
         category: "cold & Cough", 
         price: 70, 
+        unit: "Bottle",
         icon: "🫙", 
         image: "products/Drisun.jpeg", 
         description: "Dextromethorphan Hydrobrmide Phenylephrine Hydrochloride & Chlorpheniramine Maleate Syrup"  
@@ -185,6 +202,7 @@ const products = [
         name: "NEPKY PADS", 
         category: "Personal Care", 
         price: 99, 
+        unit: " Packet",
         icon: "🫙", 
         image: "products/nepky.jpeg", 
         description: "Your everyday comfort companion for menstrual care" 
@@ -193,8 +211,9 @@ const products = [
       { 
         id: 19, 
         name: "OXIDAI 100ml Syrup", 
-        category: "Syrups & Vitamins", 
+        category: "Nutritional", 
         price: 90, 
+        unit: " Bottle",
         icon: "💊", 
         image: "products/oxidai z.jpeg", 
         description: "Daily multivitamin supplement with minerals and antioxidants"
@@ -203,8 +222,9 @@ const products = [
      { 
         id: 20, 
         name: "IRODEV 200ml Syrup", 
-        category: "Syrups & Vitamins", 
+        category: "Nutritional", 
         price: 150, 
+        unit: "Bottle",
         icon: "🫙", 
         image: "products/irodevxt.jpeg", 
         description: "Ferric Ammonium Citrate 200mg + Folic Acid syrup" 
@@ -315,9 +335,9 @@ function renderProducts(items) {
  
                 <div class="product-bottom"> 
  
-                    <span class="price"> 
-                        ₹${product.price} 
-                    </span> 
+                    <span class="price">
+                      ₹${product.price} / ${product.unit}
+                       </span>
  
                     <button 
                         type="button" 
@@ -1374,136 +1394,138 @@ function escapeHTML(value) {
 } 
  
  
-/* ========================================= 
-   PRODUCT DETAILS 
-========================================= */ 
- 
-function openProductDetails(productId) { 
- 
-    const product = products.find( 
-        p => p.id === productId 
-    ); 
- 
-    if (!product) return; 
- 
-    const existingModal = 
-        document.getElementById("productDetailsModal"); 
- 
-    if (existingModal) { 
-        existingModal.remove(); 
-    } 
- 
-    const modal = 
-        document.createElement("div"); 
- 
-    modal.id = "productDetailsModal"; 
- 
-    modal.innerHTML = ` 
- 
-        <div class="product-details-overlay"> 
- 
-            <div 
-                class="product-details-modal" 
-                onclick="event.stopPropagation()" 
-            > 
- 
-                <button 
-                    class="product-details-close" 
-                    onclick="closeProductDetails()" 
-                    type="button" 
-                > 
-                    × 
-                </button> 
- 
-                <div class="product-details-image"> 
- 
-                    ${ 
-                        product.image 
-                        ? 
-                        ` 
-                        <img 
-                            src="${product.image}" 
-                            alt="${escapeHTML(product.name)}" 
-                            onerror=" 
-                                this.onerror=null; 
-                                this.style.display='none'; 
-                                this.parentElement.innerHTML='<div class=&quot;product-image-fallback&quot;>${product.icon || "💊"}</div>'; 
-                            " 
-                        > 
-                        ` 
-                        : 
-                        ` 
-                        <div class="product-image-fallback"> 
-                            ${product.icon || "💊"} 
-                        </div> 
-                        ` 
-                    } 
- 
-                </div> 
- 
-                <div class="product-details-content"> 
- 
-                    <span class="product-details-category"> 
-                        ${escapeHTML(product.category)} 
-                    </span> 
- 
-                    <h2> 
-                        ${escapeHTML(product.name)} 
-                    </h2> 
- 
-                    <p class="product-details-description"> 
-                        ${escapeHTML(product.description)} 
-                    </p> 
- 
-                    <div class="product-details-price"> 
-                        ₹${product.price} 
-                    </div> 
- 
-                    <button 
-                        class="product-details-add" 
-                        type="button" 
-                        onclick=" 
-                            addToCart(${product.id}); 
-                            closeProductDetails(); 
-                        " 
-                    > 
-                        Add to Cart + 
-                    </button> 
- 
-                </div> 
- 
-            </div> 
- 
-        </div> 
- 
-    `; 
- 
-    document.body.appendChild(modal); 
- 
-    const overlay = 
-        modal.querySelector( 
-            ".product-details-overlay" 
-        ); 
- 
-    if (overlay) { 
- 
-        overlay.addEventListener( 
-            "click", 
-            function(event) { 
- 
-                if (event.target === overlay) { 
-                    closeProductDetails(); 
-                } 
- 
-            } 
-        ); 
- 
-    } 
- 
-    document.body.style.overflow = "hidden"; 
- 
-} 
- 
+/* =========================================
+   PRODUCT DETAILS
+========================================= */
+
+function openProductDetails(productId) {
+
+    const product = products.find(
+        p => p.id === productId
+    );
+
+    if (!product) return;
+
+    const existingModal =
+        document.getElementById("productDetailsModal");
+
+    if (existingModal) {
+        existingModal.remove();
+    }
+
+    const modal =
+        document.createElement("div");
+
+    modal.id = "productDetailsModal";
+
+    modal.innerHTML = `
+
+        <div class="product-details-overlay">
+
+            <div
+                class="product-details-modal"
+                onclick="event.stopPropagation()"
+            >
+
+                <button
+                    class="product-details-close"
+                    onclick="closeProductDetails()"
+                    type="button"
+                >
+                    ×
+                </button>
+
+                <div class="product-details-image">
+
+                    ${
+                        product.image
+                        ?
+                        `
+                        <img
+                            src="${product.image}"
+                            alt="${escapeHTML(product.name)}"
+                            onerror="
+                                this.onerror=null;
+                                this.style.display='none';
+                                this.parentElement.innerHTML='<div class=&quot;product-image-fallback&quot;>${product.icon || "💊"}</div>';
+                            "
+                        >
+                        `
+                        :
+                        `
+                        <div class="product-image-fallback">
+                            ${product.icon || "💊"}
+                        </div>
+                        `
+                    }
+
+                </div>
+
+                <div class="product-details-content">
+
+                    <span class="product-details-category">
+                        ${escapeHTML(product.category)}
+                    </span>
+
+                    <h2>
+                        ${escapeHTML(product.name)}
+                    </h2>
+
+                    <p class="product-details-description">
+                        ${escapeHTML(product.description)}
+                    </p>
+
+                    <div class="product-details-price">
+                          ₹${product.price}
+                            <span class="price-unit">
+                               / ${escapeHTML(product.unit || "strip")}
+                            </span>
+                      </div>
+
+                    <button
+                        class="product-details-add"
+                        type="button"
+                        onclick="
+                            addToCart(${product.id});
+                            closeProductDetails();
+                        "
+                    >
+                        Add to Cart +
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    `;
+
+    document.body.appendChild(modal);
+
+    const overlay =
+        modal.querySelector(
+            ".product-details-overlay"
+        );
+
+    if (overlay) {
+
+        overlay.addEventListener(
+            "click",
+            function(event) {
+
+                if (event.target === overlay) {
+                    closeProductDetails();
+                }
+
+            }
+        );
+
+    }
+
+    document.body.style.overflow = "hidden";
+
+}
  
 /* ========================================= 
    CLOSE PRODUCT DETAILS 
@@ -2010,3 +2032,85 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 });
+/* =========================================================
+   CART DISCOUNT
+========================================================= */
+
+let currentCartDiscount = 0;
+
+function applyCartDiscount() {
+
+    const input = document.getElementById("cartDiscount");
+
+    if (!input) return;
+
+    let discount = Number(input.value) || 0;
+
+    // Never allow more than 50%
+    discount = Math.max(0, Math.min(50, discount));
+
+    input.value = discount;
+
+    currentCartDiscount = discount;
+
+    updateCartDiscountTotal();
+}
+
+
+function updateCartDiscountTotal() {
+
+    const subtotal = cart.reduce(
+        (total, item) => {
+
+            return total + (
+                Number(item.price) * Number(item.quantity)
+            );
+
+        },
+        0
+    );
+
+    const discountAmount =
+        subtotal * (currentCartDiscount / 100);
+
+    const finalTotal =
+        subtotal - discountAmount;
+
+
+    const subtotalElement =
+        document.getElementById("cartSubtotal");
+
+    const discountElement =
+        document.getElementById("cartDiscountAmount");
+
+    const totalElement =
+        document.getElementById("cartTotal");
+
+
+    if (subtotalElement) {
+        subtotalElement.textContent =
+            `₹${subtotal.toFixed(0)}`;
+    }
+
+
+    if (discountElement) {
+        discountElement.textContent =
+            `− ₹${discountAmount.toFixed(0)}`;
+    }
+
+
+    if (totalElement) {
+        totalElement.textContent =
+            `₹${finalTotal.toFixed(0)}`;
+    }
+
+
+    // Checkout total
+    const checkoutTotal =
+        document.getElementById("checkoutTotal");
+
+    if (checkoutTotal) {
+        checkoutTotal.textContent =
+            `₹${finalTotal.toFixed(0)}`;
+    }
+}
