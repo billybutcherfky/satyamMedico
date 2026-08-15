@@ -154,9 +154,9 @@
 
         <button
             type="button"
-            onclick="filterProducts('Pain Relief')"
+            onclick="filterProducts('Analgesics')"
         >
-            Pain Relief
+            Analgesics
         </button>
 
         <button
@@ -168,9 +168,9 @@
 
         <button
             type="button"
-            onclick="filterProducts('Cold & Cough')"
+            onclick="filterProducts('Nutritional')"
         >
-            Cold & Cough
+            Nutritional
         </button>
 
         <button
@@ -182,9 +182,23 @@
 
         <button
             type="button"
-            onclick="filterProducts('Syrups & Vitamins')"
+            onclick="filterProducts('cold & Cough')"
         >
-            Syrups & Vitamins
+            cold & Cough
+        </button>
+
+         <button
+            type="button"
+            onclick="filterProducts('Gastrointestinal')"
+        >
+            Gastrointestinal
+        </button>
+
+         <button
+            type="button"
+            onclick="filterProducts('Miscellaneous')"
+        >
+            Miscellaneous
         </button>
 
     </div>
@@ -650,18 +664,53 @@
         </h2>
 
         <div id="cartItems"></div>
+        <div class="cart-discount-box">
 
-        <div class="cart-total">
+    <label for="cartDiscount">
+        Discount
+    </label>
 
-            <span>
-                Total
-            </span>
+    <div class="discount-input-row">
 
-            <strong id="cartTotal">
-                ₹0
-            </strong>
+        <input
+            type="number"
+            id="cartDiscount"
+            min="0"
+            max="50"
+            step="1"
+            value="0"
+            placeholder="0"
+            oninput="applyCartDiscount()"
+        >
 
-        </div>
+        <span>%</span>
+
+    </div>
+
+    <small>
+        Maximum discount: 50%
+    </small>
+
+</div>
+
+       <div class="cart-discount-summary">
+
+    <div>
+        <span>Subtotal</span>
+        <strong id="cartSubtotal">₹0</strong>
+    </div>
+
+    <div>
+        <span>Discount</span>
+        <strong id="cartDiscountAmount">− ₹0</strong>
+    </div>
+
+    <div class="cart-final-total">
+        <span>Total</span>
+        <strong id="cartTotal">₹0</strong>
+    </div>
+
+</div>
 
         <button
             type="button"
