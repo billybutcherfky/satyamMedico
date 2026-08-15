@@ -188,7 +188,7 @@ img {
 
     background: var(--secondary);
 
-    border-color: #cce9e1;
+    border-color: #9be7d1;
 
     transform: translateY(-1px);
 }
@@ -2185,4 +2185,380 @@ select:focus-visible {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
+}
+/* =========================
+   LIGHT / DARK MODE
+========================= */
+
+.theme-toggle {
+    width: 44px;
+    height: 44px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    background: var(--secondary);
+    color: var(--text);
+
+    font-size: 19px;
+
+    cursor: pointer;
+
+    transition:
+        background .25s ease,
+        color .25s ease,
+        border-color .25s ease,
+        transform .2s ease;
+}
+
+.theme-toggle:hover {
+    background: var(--primary);
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+
+/* =========================
+   DARK THEME VARIABLES
+========================= */
+
+body.dark-mode {
+
+    --primary: #19b995;
+    --primary-dark: #0f9b7d;
+
+    --secondary: #173b34;
+
+    --text: #f1f7f5;
+    --muted: #a8b8b3;
+
+    --border: #29433d;
+
+    --white: #18221f;
+
+    --background: #0d1513;
+}
+
+
+/* =========================
+   DARK MODE BODY
+========================= */
+
+body.dark-mode {
+    background: var(--background);
+    color: var(--text);
+}
+
+
+/* HEADER */
+
+body.dark-mode .header {
+    background: #111c19;
+    border-color: var(--border);
+}
+
+
+/* CATEGORY NAV */
+
+body.dark-mode .category-nav {
+    background: #111c19;
+    border-color: var(--border);
+}
+
+
+/* SEARCH */
+
+body.dark-mode .search-box {
+    background: #182521;
+    border-color: var(--border);
+}
+
+body.dark-mode .search-box:focus-within {
+    background: #1b2925;
+}
+
+body.dark-mode .search-box input {
+    color: var(--text);
+}
+
+
+/* NAVIGATION */
+
+body.dark-mode .main-nav a {
+    color: var(--muted);
+}
+
+body.dark-mode .main-nav a:hover,
+body.dark-mode .main-nav a.active {
+    background: var(--secondary);
+    color: var(--primary);
+    border-color: var(--border);
+}
+
+
+/* CATEGORY BUTTONS */
+
+body.dark-mode .categories button {
+    color: var(--muted);
+}
+
+body.dark-mode .categories button:hover {
+    background: var(--secondary);
+    color: var(--primary);
+}
+
+
+/* HERO */
+
+body.dark-mode .hero {
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(25, 185, 149, .15),
+            transparent 35%
+        ),
+        #101b18;
+}
+
+
+/* HERO CARD */
+
+body.dark-mode .hero-card {
+    background: #17231f;
+    border-color: var(--border);
+}
+
+
+/* BENEFITS */
+
+body.dark-mode .benefits {
+    background: #111c19;
+    border-color: var(--border);
+}
+
+body.dark-mode .benefit {
+    background: #111c19;
+    border-color: var(--border);
+}
+
+body.dark-mode .benefit:hover {
+    background: #16241f;
+}
+
+
+/* PRODUCTS */
+
+body.dark-mode .products-section {
+    background: #0d1513;
+}
+
+
+/* PRODUCT CARD */
+
+body.dark-mode .product-card {
+    background: #17231f;
+    border-color: var(--border);
+}
+
+
+/* PRODUCT IMAGE */
+
+body.dark-mode .product-image {
+    background: #1b2925;
+}
+
+
+/* SORT */
+
+body.dark-mode .section-header select {
+    background: #17231f;
+    color: var(--text);
+    border-color: var(--border);
+}
+
+
+/* SERVICES */
+
+body.dark-mode .services-section {
+    background: #111c19;
+    border-color: var(--border);
+}
+
+
+/* SERVICE CARD */
+
+body.dark-mode .service-card {
+    background: #17231f;
+    border-color: var(--border);
+}
+
+
+/* MODALS */
+
+body.dark-mode .modal-content {
+    background: #17231f;
+    color: var(--text);
+}
+
+
+/* MODAL INPUTS */
+
+body.dark-mode .modal-content input,
+body.dark-mode .modal-content textarea,
+body.dark-mode .modal-content select {
+    background: #111c19;
+    color: var(--text);
+    border-color: var(--border);
+}
+
+
+/* CART */
+
+body.dark-mode .cart-item {
+    border-color: var(--border);
+}
+
+body.dark-mode .quantity button {
+    background: #17231f;
+    color: var(--text);
+    border-color: var(--border);
+}
+
+
+/* CONTACT */
+
+body.dark-mode .contact-section {
+    background:
+        linear-gradient(
+            rgba(13, 21, 19, .94),
+            rgba(13, 21, 19, .94)
+        ),
+        url("ttps://images.unsplash.com/photo-1584308h666744-24d5c474f2ae?auto=format&fit=crop&w=1600&q=80");
+
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* CONTACT INFO */
+
+body.dark-mode .contact-info,
+body.dark-mode .contact-form-card {
+    background: rgba(23, 35, 31, .94);
+    border-color: var(--border);
+}
+
+
+/* CONTACT INPUTS */
+
+body.dark-mode .contact-form-card input,
+body.dark-mode .contact-form-card textarea {
+    background: #111c19;
+    color: var(--text);
+    border-color: var(--border);
+}
+
+
+/* FOOTER */
+
+body.dark-mode footer {
+    background: #080e0c;
+}
+
+
+/* THEME TRANSITION */
+
+body,
+.header,
+.category-nav,
+.hero,
+.hero-card,
+.benefits,
+.benefit,
+.products-section,
+.product-card,
+.services-section,
+.service-card,
+.modal-content,
+.contact-info,
+.contact-form-card,
+.search-box,
+input,
+textarea,
+select {
+    transition:
+        background-color .3s ease,
+        color .3s ease,
+        border-color .3s ease;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 450px) {
+
+    .theme-toggle {
+        width: 40px;
+        height: 40px;
+        font-size: 17px;
+    }
+
+}
+/* =========================================================
+   FINAL DARK MODE FIX
+   Only: Mobile Main Nav + Product Details
+========================================================= */
+
+/* MOBILE MAIN NAV */
+@media (max-width: 750px) {
+
+    body.dark-mode .main-nav a {
+        background: #16241f !important;
+        color: #a8b8b3 !important;
+        border-color: #29433d !important;
+    }
+
+    body.dark-mode .main-nav a:hover,
+    body.dark-mode .main-nav a.active {
+        background: #173b34 !important;
+        color: #19b995 !important;
+        border-color: #29433d !important;
+    }
+
+}
+
+
+/* PRODUCT DETAILS MODAL */
+body.dark-mode .product-details-modal {
+    background: #17231f !important;
+    color: #f1f7f5 !important;
+}
+
+body.dark-mode .product-details-image {
+    background: #1b2925 !important;
+}
+
+body.dark-mode .product-details-content h2 {
+    color: #f1f7f5 !important;
+}
+
+body.dark-mode .product-details-description {
+    color: #a8b8b3 !important;
+}
+
+body.dark-mode .product-details-price {
+    color: #f1f7f5 !important;
+}
+
+body.dark-mode .product-details-close {
+    background: #e9f8f4 !important;
+    color: #17231f !important;
+}
+
+body.dark-mode .product-details-close:hover {
+    background: #19b995 !important;
+    color: #ffffff !important;
 }
