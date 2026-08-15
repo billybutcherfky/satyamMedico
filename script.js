@@ -12,12 +12,12 @@ const products = [
  
     { 
         id: 1, 
-        name: "RDFIX CV 625 Tablets", 
-        category: "Antibiotics", 
-        price: 1170, 
-        icon: "💊", 
-        image: "products/RDFIXCV625.jpeg", 
-        description: "Amoxicillin 500mg + Potassium 125mg Tablets" 
+        name: "BAMBAM GEL Ointment", 
+        category: "Personal Care", 
+        price: 95, 
+        icon: "🧴", 
+        image: "products/bambamge.jpeg", 
+        description: "Diclofenac Diethylamine Oleum Lini, Methyl Salicylate, Menthol & Gel" 
     }, 
  
     { 
@@ -31,47 +31,17 @@ const products = [
     }, 
  
     { 
-        id: 3, 
-        name: "BAMBAM GEL Ointment", 
-        category: "Personal Care", 
-        price: 95, 
-        icon: "🧴", 
-        image: "products/bambamge.jpeg", 
-        description: "Diclofenac Diethylamine Oleum Lini, Methyl Salicylate, Menthol & Gel" 
-    }, 
- 
-    { 
-        id: 4, 
-        name: "OXIDAI Z Syrup", 
-        category: "Syrups & Vitamins", 
-        price: 90, 
-        icon: "💊", 
-        image: "products/oxidai z.jpeg", 
-        description: "Daily multivitamin supplement with minerals and antioxidants" 
-    }, 
- 
-    { 
-        id: 5, 
-        name: "ACIDEV P", 
-        category: "Pain Relief", 
-        price: 1120, 
-        icon: "🌡️", 
-        image: "products/acidev.p.jpeg", 
-        description: "Acelofenacem 100mg + Paracetamol 325mg Tablets" 
-    }, 
- 
-    { 
-        id: 6, 
-        name: "AJISAT 500 Tablets", 
+       id: 3, 
+        name: "RDFIX CV 625 Tablets", 
         category: "Antibiotics", 
-        price: 750, 
-        icon: "🧴", 
-        image: "products/ajisat500.jpeg", 
-        description: "Azithromycin 500mg Tablets" 
+        price: 1170, 
+        icon: "💊", 
+        image: "products/RDFIXCV625.jpeg", 
+        description: "Amoxicillin 500mg + Potassium 125mg Tablets" 
     }, 
  
     { 
-        id: 7, 
+       id: 4, 
         name: "MUNISU-L Tablets", 
         category: "cold & Cough", 
         price: 900, 
@@ -81,27 +51,107 @@ const products = [
     }, 
  
     { 
-        id: 8, 
+        id: 5, 
+        name: "AJISAT 500 Tablets", 
+        category: "Antibiotics", 
+        price: 750, 
+        icon: "🧴", 
+        image: "products/ajisat500.jpeg", 
+        description: "Azithromycin 500mg Tablets" 
+    }, 
+ 
+    { 
+        id: 6, 
         name: "RDFIX 200 mg Tablets", 
         category: "Pain Relief", 
         price: 1050, 
         icon: "🫙", 
         image: "products/Rdfix200dt.jpeg", 
-        description: "Cefixime Dispersible Tablets 200mg" 
+        description: "Cefixime Dispersible Tablets 200mg"
+    }, 
+ 
+    { 
+        id: 7, 
+        name: "PANDEAP DSR Tablets", 
+        category: "Pain Relief", 
+        price: 1030, 
+        icon: "🫙", 
+        image: "products/panmon.jpeg", 
+        description: "Enteric Coated Pantoprazole 40mg + Domperidone 30mg Tablets"
+    }, 
+ 
+    { 
+        id: 8, 
+        name: "NURODIP GOLD Tablets", 
+        category: "Antibiotics", 
+        price: 1500, 
+        icon: "🫙", 
+        image: "products/nurodipgold2.jpeg", 
+        description: "Methylcobalamin Folic Acid Vitamin B1 Vitamin B6 & Alpha Lipoic Acid Tablets" 
     }, 
  
     { 
         id: 9, 
-        name: "NEPKY PADS", 
-        category: "Personal Care", 
-        price: 99, 
+        name: "UDMOX 500 Tablets", 
+        category: "Antibiotics", 
+        price: 1200, 
         icon: "🫙", 
-        image: "products/nepky.jpeg", 
-        description: "Your everyday comfort companion for menstrual care" 
+        image: "products/udmox.jpeg", 
+        description: "Amoxicillin 500mg & Dicloxacillin Tablets" 
     }, 
  
     { 
         id: 10, 
+        name: "RDFIX O Tablets", 
+        category: "Antibiotics", 
+        price: 2000, 
+        icon: "🫙", 
+        image: "products/rdfixo.jpeg", 
+        description: "Cefixime & Ofloxacin Tablets" 
+    }, 
+
+     { 
+        id: 11, 
+        name: "ACIDEV P", 
+        category: "Pain Relief", 
+        price: 1120, 
+        icon: "🌡️", 
+        image: "products/acidev.p.jpeg", 
+        description: "Acelofenacem 100mg + Paracetamol 325mg Tablets"
+    }, 
+
+     { 
+        id: 12, 
+        name: "ACIDEV MR tablets", 
+        category: "Antibiotics", 
+        price: 700, 
+        icon: "🫙", 
+        image: "products/acidevmr.jpeg", 
+        description: "Aceclofenac Paracetamol & Cholrzoxazone Tablets"
+    }, 
+
+     { 
+        id: 13, 
+         name: "MONOSAT 50 Oral Suspension", 
+        category: "Syrups & Vitamins", 
+        price: 89, 
+        icon: "🫙", 
+        image: "products/monosat50.jpeg", 
+        description: "Cefpodoxime Proxetil Oral Suspension 50mg" 
+    }, 
+
+     { 
+        id: 14, 
+        name: "RDFIX CV Dry Syrup", 
+        category: "Cold & Cough", 
+        price: 80, 
+        icon: "🫙", 
+        image: "products/rdfixcvdry.jpeg", 
+        description: "Amoxicillin & Potassium Clavulate Oral Suspension" 
+    }, 
+
+      { 
+        id: 15, 
         name: "OFLOSIL OM Syrup", 
         category: "Pain Relief", 
         price: 80, 
@@ -110,49 +160,56 @@ const products = [
         description: "Ofloxacin Metronidazole & Simethicone Oral Suspension" 
     }, 
 
-     { 
-        id: 11, 
-        name: "PANDEAP DSR Tablets", 
-        category: "Pain Relief", 
-        price: 103, 
-        icon: "🫙", 
-        image: "products/panmon.jpeg", 
-        description: "Enteric Coated Pantoprazole 40mg + Domperidone 30mg Tablets" 
-    }, 
-
-     { 
-        id: 12, 
-        name: "DRISUN DX Syrup", 
-        category: "cold & Cough", 
-        price: 70, 
-        icon: "🫙", 
-        image: "products/Drisun.jpeg", 
-        description: "Dextromethorphan Hydrobrmide Phenylephrine Hydrochloride & Chlorpheniramine Maleate Syrup" 
-    }, 
-
-     { 
-        id: 13, 
+      { 
+        id: 16, 
         name: "MUNISU-L Syrup", 
         category: "cold & Cough", 
         price: 80, 
         icon: "🫙", 
         image: "products/syrupmunisl.jpeg", 
-        description: "Monteleukast 4mg + Levocetirizine 2.5mg Dihydrocholoride Syrup" 
+        description: "Monteleukast 4mg + Levocetirizine 2.5mg Dihydrocholoride Syrup"  
     }, 
+
+      { 
+        id: 17, 
+        name: "DRISUN DX Syrup", 
+        category: "cold & Cough", 
+        price: 70, 
+        icon: "🫙", 
+        image: "products/Drisun.jpeg", 
+        description: "Dextromethorphan Hydrobrmide Phenylephrine Hydrochloride & Chlorpheniramine Maleate Syrup"  
+    }, 
+
+      { 
+        id: 18, 
+        name: "NEPKY PADS", 
+        category: "Personal Care", 
+        price: 99, 
+        icon: "🫙", 
+        image: "products/nepky.jpeg", 
+        description: "Your everyday comfort companion for menstrual care" 
+    }, 
+
+      { 
+        id: 19, 
+        name: "OXIDAI 100ml Syrup", 
+        category: "Syrups & Vitamins", 
+        price: 90, 
+        icon: "💊", 
+        image: "products/oxidai z.jpeg", 
+        description: "Daily multivitamin supplement with minerals and antioxidants"
+    },
 
      { 
-        id: 14, 
-        name: "UDMOX 500 Tablets", 
-        category: "Antibiotics", 
-        price: 80, 
+        id: 20, 
+        name: "IRODEV 200ml Syrup", 
+        category: "Syrups & Vitamins", 
+        price: 150, 
         icon: "🫙", 
-        image: "products/udmox.jpeg", 
-        description: "Amoxicillin 500mg & Dicloxacillin Tablets" 
-    }, 
-
-
+        image: "products/irodevxt.jpeg", 
+        description: "Ferric Ammonium Citrate 200mg + Folic Acid syrup" 
+    },
     
- 
 ]; 
  
  
