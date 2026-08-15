@@ -95,52 +95,40 @@
 
 
         <!-- ACCOUNT + CART -->
+<div class="nav-actions">
 
-        <div class="nav-actions">
-
-            <!-- ACCOUNT -->
-
-            <button
-                type="button"
-                class="account-btn"
-                onclick="openAccount()"
-            >
-
-                <span>👤</span>
-
-                <div>
-
-                    <small>Hello,</small>
-
-                    <strong id="accountText">
-                        Login
-                    </strong>
-
-                </div>
-
-            </button>
-
-
-            <!-- CART -->
-
-            <button
-                type="button"
-                class="cart-btn"
-                onclick="openCart()"
-            >
-
-                🛒
-
-                <span
-                    class="cart-count"
-                    id="cartCount"
-                >
-                    0
-                </span>
-
-            </button>
-
+    <button
+        class="account-btn"
+        onclick="openAccount()"
+    >
+        <span>👤</span>
+        <div>
+            <small>Hello,</small>
+            <strong id="accountText">Login</strong>
         </div>
+    </button>
+
+    <!-- DARK / LIGHT MODE -->
+    <button
+        class="theme-toggle"
+        id="themeToggle"
+        onclick="toggleTheme()"
+        aria-label="Toggle dark mode"
+        title="Toggle Dark Mode"
+    >
+        🌙
+    </button>
+
+    <!-- CART -->
+    <button
+        class="cart-btn"
+        onclick="openCart()"
+    >
+        🛒
+        <span class="cart-count" id="cartCount">0</span>
+    </button>
+
+</div>
 
     </div>
 
@@ -1211,8 +1199,6 @@
     </div>
 
 </footer>
-
-
 
 
 <!-- =====================================================
