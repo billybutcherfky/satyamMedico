@@ -809,12 +809,31 @@
             </label>
 
             <select id="paymentMethod">
+    <option value="cod">
+        Cash on Delivery
+    </option>
 
-                <option value="cod">
-                    Cash on Delivery
-                </option>
+    <option value="phonepe">
+        PhonePe / UPI
+    </option>
+</select>
 
-            </select>
+<!-- PHONEPE QR -->
+<div id="phonePeQrBox" class="phonepe-qr-box" style="display: none;">
+
+    <p>Scan QR Code to Pay</p>
+
+    <img
+        id="phonePeQr"
+        src="phonepay/aniketphonepay.jpeg"
+        alt="PhonePe QR Code"
+    >
+
+    <small>
+        Pay using PhonePe or any UPI app
+    </small>
+
+</div>
 
 
             <!-- TOTAL -->
