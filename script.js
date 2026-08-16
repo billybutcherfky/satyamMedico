@@ -336,7 +336,8 @@ function renderProducts(items) {
                 <div class="product-bottom"> 
  
                     <span class="price">
-                      ₹${product.price} / ${product.unit}
+                         ₹${product.price}
+                         <span class="price-unit">/ ${product.unit}</span>
                        </span>
  
                     <button 
@@ -991,6 +992,36 @@ function openCheckout() {
         .classList.add("active"); 
  
 } 
+/* =========================================
+   PHONEPE QR PAYMENT
+========================================= */
+
+const paymentMethod =
+    document.getElementById("paymentMethod");
+
+const phonePeQrBox =
+    document.getElementById("phonePeQrBox");
+
+if (paymentMethod && phonePeQrBox) {
+
+    paymentMethod.addEventListener(
+        "change",
+        function () {
+
+            if (this.value === "phonepe") {
+
+                phonePeQrBox.style.display = "block";
+
+            } else {
+
+                phonePeQrBox.style.display = "none";
+
+            }
+
+        }
+    );
+
+}
  
  
 /* ========================================= 
