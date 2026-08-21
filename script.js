@@ -1112,8 +1112,17 @@ function openCheckout() {
 
     if (total) {
 
+        // Apply current discount
+        const subtotal = getCartTotal();
+
+        const discountAmount =
+            subtotal * (currentCartDiscount / 100);
+
+        const finalTotal =
+            subtotal - discountAmount;
+
         total.textContent =
-            `₹${getCartTotal()}`;
+            `₹${finalTotal.toFixed(0)}`;
 
     }
 
@@ -1122,7 +1131,6 @@ function openCheckout() {
         .classList.add("active");
 
 }
-
 
 /* =========================================================
    PAYMENT METHOD / PHONEPE QR
@@ -1211,163 +1219,171 @@ function initializeCheckoutForm() {
 
 
             /* -------------------------
-               Generate Order
-            ------------------------- */
+   Generate Order
+------------------------- */
 
-            const orderId =
-                "ORD-" +
-                Date.now()
-                    .toString()
-                    .slice(-8);
+const orderId =
+    "ORD-" +
+    Date.now()
+        .toString()
+        .slice(-8);
 
-            const order = {
+// Calculate discounted total
+const subtotal = getCartTotal();
 
-                id: orderId,
+const discountAmount =
+    subtotal * (currentCartDiscount / 100);
 
-                customer: {
+const finalTotal =
+    subtotal - discountAmount;
 
-                    name,
+const order = {
 
-                    phone,
+    id: orderId,
 
-                    address
+    customer: {
 
+        name,
+
+        phone,
+
+        address
+
+    },
+
+    items: [...cart],
+
+    total: finalTotal,
+
+    paymentMethod:
+        document
+            .getElementById("paymentMethod")
+            .value,
+
+    status: "Pending",
+
+    date:
+        new Date().toISOString()
+
+};
+
+
+/* =========================================================
+   SAVE ORDER
+========================================================= */
+
+const orders =
+    JSON.parse(
+        localStorage.getItem(
+            "medicalOrders"
+        )
+    ) || [];
+
+orders.push(order);
+
+localStorage.setItem(
+    "medicalOrders",
+    JSON.stringify(orders)
+);
+
+
+/* =========================================================
+   SEND ORDER TO EMAIL VIA FORMSPREE
+========================================================= */
+
+try {
+
+    const orderItems =
+        order.items
+            .map(
+                item =>
+                    `${item.name} × ${item.quantity} = ₹${item.price * item.quantity}`
+            )
+            .join("\n");
+
+    const response =
+        await fetch(
+            "https://formspree.io/f/xwleqnze",
+            {
+                method: "POST",
+
+                headers: {
+                    "Accept": "application/json",
+                    "Content-Type": "application/json"
                 },
 
-                items: [...cart],
+                body: JSON.stringify({
 
-                total: getCartTotal(),
+                    _subject:
+                        `New Order - ${orderId}`,
 
-                paymentMethod:
-                    document
-                        .getElementById("paymentMethod")
-                        .value,
+                    "Order ID":
+                        orderId,
 
-                status: "Pending",
+                    "Customer Name":
+                        name,
 
-                date:
-                    new Date().toISOString()
+                    "Mobile Number":
+                        phone,
 
-            };
+                    "Delivery Address":
+                        address,
 
+                    "Products":
+                        orderItems,
 
-            /* =========================================================
-               SAVE ORDER
-            ========================================================= */
+                    "Total Amount":
+                        `₹${order.total.toFixed(0)}`,
 
-            const orders =
-                JSON.parse(
-                    localStorage.getItem(
-                        "medicalOrders"
-                    )
-                ) || [];
+                    "Payment Method":
+                        order.paymentMethod,
 
-            orders.push(order);
+                    "Order Status":
+                        order.status,
 
-            localStorage.setItem(
-                "medicalOrders",
-                JSON.stringify(orders)
-            );
+                    "Order Date":
+                        new Date()
+                            .toLocaleString("en-IN")
 
-
-            /* =========================================================
-               SEND ORDER TO EMAIL VIA FORMSPREE
-            ========================================================= */
-
-            try {
-
-                const orderItems =
-                    order.items
-                        .map(
-                            item =>
-                                `${item.name} × ${item.quantity} = ₹${item.price * item.quantity}`
-                        )
-                        .join("\n");
-
-                const response =
-                    await fetch(
-                        "https://formspree.io/f/xwleqnze",
-                        {
-                            method: "POST",
-
-                            headers: {
-                                "Accept": "application/json",
-                                "Content-Type": "application/json"
-                            },
-
-                            body: JSON.stringify({
-
-                                _subject:
-                                    `New Order - ${orderId}`,
-
-                                "Order ID":
-                                    orderId,
-
-                                "Customer Name":
-                                    name,
-
-                                "Mobile Number":
-                                    phone,
-
-                                "Delivery Address":
-                                    address,
-
-                                "Products":
-                                    orderItems,
-
-                                "Total Amount":
-                                    `₹${order.total}`,
-
-                                "Payment Method":
-                                    order.paymentMethod,
-
-                                "Order Status":
-                                    order.status,
-
-                                "Order Date":
-                                    new Date()
-                                        .toLocaleString("en-IN")
-
-                            })
-
-                        }
-                    );
-
-                const result =
-                    await response.json();
-
-                if (!response.ok) {
-
-                    console.error(
-                        "Formspree Error:",
-                        result
-                    );
-
-                    throw new Error(
-                        result?.errors?.[0]?.message ||
-                        "Formspree submission failed"
-                    );
-
-                }
-
-                console.log(
-                    "ORDER EMAIL SENT:",
-                    result
-                );
-
-            } catch (error) {
-
-                console.error(
-                    "Formspree Error:",
-                    error
-                );
-
-                showToast(
-                    "Order saved, but email could not be sent."
-                );
+                })
 
             }
+        );
 
+    const result =
+        await response.json();
+
+    if (!response.ok) {
+
+        console.error(
+            "Formspree Error:",
+            result
+        );
+
+        throw new Error(
+            result?.errors?.[0]?.message ||
+            "Formspree submission failed"
+        );
+
+    }
+
+    console.log(
+        "ORDER EMAIL SENT:",
+        result
+    );
+
+} catch (error) {
+
+    console.error(
+        "Formspree Error:",
+        error
+    );
+
+    showToast(
+        "Order saved, but email could not be sent."
+    );
+
+}
 
             /* =========================================================
                CLEAR CART
